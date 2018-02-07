@@ -1,6 +1,8 @@
-package Unit1;
+package unit1;
 
 import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GraphicsRunner extends JFrame
 {
@@ -17,7 +19,9 @@ public class GraphicsRunner extends JFrame
 		
 		//getContentPane().add(new BigHouse());		
 		
-		getContentPane().add(new Robot());
+		//getContentPane().add(new Robot());
+		
+		getContentPane().add(new ShapePanel());
 		
 		setVisible(true);
 	}
