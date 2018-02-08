@@ -24,18 +24,20 @@ public class Distance
 	public void setCoordinates(int x1, int y1, int x2, int y2)
 	{
 		Scanner keyboard = new Scanner(System.in);
+		keyboard.useDelimiter(",|\\s+");
 		System.out.print("Enter X1:: ");
-		x1 = keyboard.nextInt();
+		x1 = Integer.parseInt(keyboard.nextLine());
 		System.out.print("Enter Y1:: ");
-		y1 = keyboard.nextInt();
+		y1 = Integer.parseInt(keyboard.nextLine());
 		System.out.print("Enter X2:: ");
-		x2 = keyboard.nextInt();
+		x2 = Integer.parseInt(keyboard.nextLine());
 		System.out.print("Enter Y2:: ");
-		y2 = keyboard.nextInt();
+		y2 = Integer.parseInt(keyboard.nextLine());
 		xOne = x1;
 		yOne = y1;
 		xTwo = x2;
 		xTwo = y2;
+		System.out.println(xTwo);
 		calcDistance();
 		print();
 	}
@@ -47,10 +49,10 @@ public class Distance
 		double dxTwo = (double)xTwo;
 		double dyTwo = (double)yTwo;
 		
-		double diffX = dxOne - dxTwo;
-		double diffY = dyOne - dyTwo;
+		double diffX = dxTwo - dxOne;
+		double diffY = dyTwo - dyOne;
 		
-		distance = sqrt(Math.pow(diffX, 2)+ Math.pow(diffY, 2));
+		distance = sqrt(Math.pow(Math.abs(diffX), 2)+ Math.pow(Math.abs(diffY), 2));
 	}
 
 	public void print( )
