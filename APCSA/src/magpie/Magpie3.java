@@ -1,3 +1,4 @@
+package magpie;
 public class Magpie3
 {
 	/**
@@ -24,7 +25,7 @@ public class Magpie3
 		{
 			response = "Say something, please.";
 		}
-		else if (findKeyword(statement, "no") >= 0)
+		else if (findKeyword(statement, "no") >= 0 && findKeyword(statement, "no") > -1)
 		{
 			response = "Why so negative?";
 		}
@@ -34,6 +35,23 @@ public class Magpie3
 				|| findKeyword(statement, "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
+		}
+		else if (statement.indexOf("cat") >= 0 || statement.indexOf("dog") >= 0 ){
+			if(findKeyword(statement, "cat") > -1 || findKeyword(statement, "dog") > -1){
+				response = "Tell me more about your pets.";	
+			}
+		}
+		else if (statement.indexOf("Remington") >= 0){
+			response = "He sounds like a good teacher.";
+		}
+		else if (statement.indexOf("hello") >= 0){
+			response = "Hi!";
+		}
+		else if (statement.indexOf("haha") >= 0){
+			response = "I'm glad you found that funny.";
+		}
+		else if (statement.indexOf("thanks") >= 0){
+			response = "You are very welcome.";
 		}
 		else
 		{
