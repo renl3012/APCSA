@@ -36,21 +36,19 @@ public class Magpie3
 		{
 			response = "Tell me more about your family.";
 		}
-		else if (statement.indexOf("cat") >= 0 || statement.indexOf("dog") >= 0 ){
-			if(findKeyword(statement, "cat") > -1 || findKeyword(statement, "dog") > -1){
+		else if (findKeyword(statement, "cat") > -1 || findKeyword(statement, "dog") > -1){
 				response = "Tell me more about your pets.";	
-			}
 		}
-		else if (statement.indexOf("Remington") >= 0){
+		else if (findKeyword(statement, "Remington") > -1){
 			response = "He sounds like a good teacher.";
 		}
-		else if (statement.indexOf("hello") >= 0){
+		else if (findKeyword(statement, "hello") > -1){
 			response = "Hi!";
 		}
-		else if (statement.indexOf("haha") >= 0){
+		else if (findKeyword(statement, "haha") > -1){
 			response = "I'm glad you found that funny.";
 		}
-		else if (statement.indexOf("thanks") >= 0){
+		else if (findKeyword(statement, "thanks") > -1){
 			response = "You are very welcome.";
 		}
 		else
