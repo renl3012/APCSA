@@ -8,16 +8,14 @@ public class Lab10e
 	{
 		Scanner keyboard = new Scanner(System.in);
 		String response;
+		response = "y";
 
-		out.println("Guessing Game- how many numbers?");
+		do{out.println("Guessing Game- how many numbers?");
 		GuessingGame game1 = new GuessingGame(keyboard.nextInt());
-		
-//		out.println("Do you want to play again? ");
-//		response = keyboard.nextLine();
-//		if (response.equals("y")){
-//			out.println("Guessing Game- how many numbers?");
-//			GuessingGame game2 = new GuessingGame(keyboard.nextInt());
-//		}
+		out.println("Do you want to play again? ");
+		Scanner keyboard2 = new Scanner(System.in);
+		response = keyboard2.nextLine();
+		}while(response.equals("y"));
 
 	}
 }

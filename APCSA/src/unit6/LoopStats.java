@@ -25,11 +25,12 @@ public class LoopStats
 		stop = end;
 		System.out.println(toString());
 		getTotal();
-		System.out.println(getTotal());
+		System.out.println("total " + getTotal());
 		getEvenCount();
-		System.out.println(getEvenCount());
+		System.out.println("even count " + getEvenCount());
 		getOddCount();
-		System.out.println(getOddCount());
+		System.out.println("odd count " + getOddCount());
+		System.out.println("");
 	}
 
 	public int getEvenCount()

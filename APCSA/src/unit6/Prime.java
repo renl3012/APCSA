@@ -27,8 +27,7 @@ public class Prime
 
 	public boolean isPrime()
 	{
-		int a = 0;
-		for (a = 2; a <= Math.pow(number, 0.5); a++){
+		for (int a = 2; a <= Math.sqrt(number); a++){
 			if (number % a == 0){
 				return false;
 			}

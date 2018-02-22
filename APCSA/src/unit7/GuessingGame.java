@@ -17,10 +17,9 @@ public class GuessingGame
 	public void playGame()
 	{
 		Scanner keyboard = new Scanner(System.in);
-		double r = Math.random();
-		int trueNum = (int)(r*upperBound);
+		int trueNum = 1 + (int)(Math.random()*upperBound);
 		int tries = 0;
-		int percent = 0;
+		double percent = 0;
 		int guess = 0;
 		
 		do{
@@ -37,7 +36,7 @@ public class GuessingGame
 			tries += 1;
 			}while(guess != trueNum);
 		
-		percent = 100/tries;
+		percent = 100 - 100/tries;
 		
 		out.println("It took " + tries + " guesses to guess " + trueNum);
 		out.println("You guessed wrong " + percent + " percent of the time");

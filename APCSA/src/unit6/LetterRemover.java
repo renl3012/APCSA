@@ -16,8 +16,6 @@ public class LetterRemover
 	//add in second constructor
 	public LetterRemover(String s, char rem){
 		setRemover(s, rem);
-		removeLetters();
-		toString();
 	}
 	
 	
