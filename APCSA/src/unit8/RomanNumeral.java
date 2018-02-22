@@ -3,7 +3,7 @@ package unit8;
 import static java.lang.System.*;
 import java.util.Scanner;
 
-public class RomanNumerals
+public class RomanNumeral
 {
 	private Integer number;
 	private String roman;
@@ -14,17 +14,18 @@ public class RomanNumerals
 	private final static String[] LETTERS = {"M","CM","D","CD","C","XC",
 												  "L","XL","X","IX","V","IV","I"};
 
-	public RomanNumerals(String str)
+	public RomanNumeral(String str)
 	{
 		roman = str;
 		setRoman(str);
 	}
 
-	public RomanNumerals(Integer orig)
+	public RomanNumeral(Integer orig)
 	{
 
 		number = orig;
 		setNumber(orig);
+		
 	}
 
 	public void setNumber(Integer num)
@@ -43,16 +44,15 @@ public class RomanNumerals
 		number = 0;
 		int largest = 0;
 		for (int i = rom.length() - 1; i >= 0; i--){
-			String string = rom.substring(i, i+1);
+			String letter = rom.substring(i, i+1);
 			for (int j = 0; j <= 12; j++) {
-				if (LETTERS[j].equals(string)) {
+				if (LETTERS[j].equals(letter)) {
 					if (NUMBERS[j] >= largest) {
-						number+=NUMBERS[j];
+						number += NUMBERS[j];
 						largest = NUMBERS[j];
 					} else {
-						number-=NUMBERS[j];
+						number -= NUMBERS[j];
 					}
-					break;
 				}
 			}
 		}

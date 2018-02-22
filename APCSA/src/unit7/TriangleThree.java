@@ -15,10 +15,10 @@ public class TriangleThree
 	{
 		size = count;
 		letter = let;
-		setTriangle(letter, size);
+		setTriangle(size, letter);
 	}
 
-	public void setTriangle( String let, int sz )
+	public void setTriangle(int sz, String let)
 	{
 		for (int i = 1; i <= sz; i++){
 			String line = "";
@@ -26,7 +26,7 @@ public class TriangleThree
 				line = line + " ";
 			}
 			for (int b = sz-i; b < sz; b++){
-				line += letter;
+				line += let;
 			}
 			
 		out.println(line);

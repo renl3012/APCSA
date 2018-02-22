@@ -34,8 +34,6 @@ public class Triples
 				}
 			}
 		}
-		
-		
 	}
 	
 	private int greatestCommonFactor(int a, int b, int c)

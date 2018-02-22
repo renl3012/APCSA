@@ -6,7 +6,7 @@ public class Lab14i
 {
 	public static void main( String args[] )
 	{
-		RomanNumerals test = new RomanNumerals(10);
+		RomanNumeral test = new RomanNumeral(10);
 		out.println("10 is " + test.toString());
 
 		test.setNumber(100);
@@ -18,7 +18,7 @@ public class Lab14i
 		test.setNumber(2500);
 		out.println("2500 is " + test.toString());
 
-		test = new RomanNumerals(1500);
+		test = new RomanNumeral(1500);
 		out.println("1500 is " + test.toString());
 
 		test.setNumber(23);
@@ -40,6 +40,6 @@ public class Lab14i
 		out.println("XX is " + test.getNumber() + "\n");
 
 		test.setRoman("XXXVIII");
-		out.println("XLIX is " + test.getNumber() + "\n");
+		out.println("XXXVIII is " + test.getNumber() + "\n");
 	}
 }
