@@ -1,4 +1,6 @@
 package unit9;
+import java.lang.StringBuilder;
+
 /*public MyString1(char[] chars); 
 public char charAt(int index); 
 public int length(); 
@@ -10,7 +12,8 @@ public static MyString1 valueOf(int i);
 
 public class MyString1 {
 	String myString = "";
-	char[] myChars;
+	static char[] myChars;
+
 	public MyString1(char[] chars){
 		myChars = chars;
 		toString();
@@ -21,11 +24,7 @@ public class MyString1 {
 	}
 	
 	public int length(){
-		int count = 0;
-		for (char c: myChars){
-			count += 1;
-		}
-		return count;
+		return myChars.length;
 	}
 	
 	public MyString1 substring(int begin, int end){
@@ -35,7 +34,7 @@ public class MyString1 {
 			temp[i-begin] = myChars[i];
 		}
 		
-		MyString1 tryString = new MyString1(myChars);
+		MyString1 tryString = new MyString1(temp);
 		return tryString;
 	}
 	
@@ -66,5 +65,27 @@ public class MyString1 {
 		}
 		return false;
 	}
-
+	
+	public static MyString1 valueOf(int i){
+		int digit = 0;
+		int place = 0;
+		int length = (int)(Math.log10(i)+1);
+		char[] temp = new char[length];
+		while (i > 0){
+			digit = i % 10;
+			temp[place] = (char)(digit + 48);
+			i = i/10;
+			place++;
+		}
+		MyString1 newString = new MyString1(temp);
+		return newString;
+	}
+	
+	public String toString(){
+		String output = "";
+		for(char c: myChars){
+			output += c;
+		}
+		return output;
+	}
 }

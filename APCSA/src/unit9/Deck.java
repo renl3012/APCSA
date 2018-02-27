@@ -2,6 +2,7 @@ package unit9;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * The Deck class represents a shuffled deck of cards.
@@ -24,7 +25,7 @@ public class Deck {
 	 * The next card to be dealt is at size - 1.
 	 */
 	private int size;
-
+	ArrayList<Card> deck = new ArrayList<Card>();
 
 	/**
 	 * Creates a new <code>Deck</code> instance.<BR>
@@ -35,21 +36,19 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */\
-		Card[] localCards = new Card[52];
-		for (int i = 0; i <= localCards.length-1 ; i++){
-			for (int a = 0; a <= suits.length; a++){
-				String tempSuit = suits[a];
-				for (int b = 0; b <= ranks.length; b++){
-					String tempRank = ranks[b];
-					int tempValue = values[b];
-				}
-			}
-			card
+		size = 0;
+		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		for (int a = 0; a <= suits.length-1; a++){
+			String tempSuit = suits[a];
+			for (int b = 0; b <= ranks.length-1; b++){
+				String tempRank = ranks[b];
+				int tempValue = values[b];
+				deck.add(new Card(tempRank, tempSuit, tempValue));
+				size++;
+			}	
 		}
-		
-		
-		
+		cards = deck.toArray(cards);
+		this.shuffle();
 	}
 
 
@@ -59,6 +58,10 @@ public class Deck {
 	 */
 	public boolean isEmpty() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if (size == 0){
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -67,6 +70,7 @@ public class Deck {
 	 */
 	public int size() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return size;
 	}
 
 	/**
@@ -75,6 +79,14 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		Random r = new Random();
+		for (int i = 0; i < size * 5; i++) {
+			int x = Math.abs(r.nextInt())%size;
+			int y = Math.abs(r.nextInt())%size;
+			Card temp = cards[x];
+			cards[x] = cards[y];
+			cards[y] = temp;
+		}
 	}
 
 	/**
@@ -84,6 +96,12 @@ public class Deck {
 	 */
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if(size > 0){
+			size--;
+			Card dealNow = deck.get(size);
+			return dealNow;
+		}
+		return null;
 	}
 
 	/**
@@ -96,9 +114,9 @@ public class Deck {
 
 
 		//Unit 9 - modify to work with Arrays
-		/*
+		
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards.get(k);
+			rtn = rtn + deck.get(k);
 			if (k != 0) {
 				rtn = rtn + ", ";
 			}
@@ -109,17 +127,17 @@ public class Deck {
 		}
 
 		rtn = rtn + "\nDealt cards: \n";
-		for (int k = cards.size() - 1; k >= size; k--) {
-			rtn = rtn + cards.get(k);
+		for (int k = deck.size() - 1; k >= size; k--) {
+			rtn = rtn + deck.get(k);
 			if (k != size) {
 				rtn = rtn + ", ";
 			}
-			if ((k - cards.size()) % 2 == 0) {
+			if ((k - deck.size()) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
 				rtn = rtn + "\n";
 			}
 		}
-		*/
+		
 
 		rtn = rtn + "\n";
 		return rtn;

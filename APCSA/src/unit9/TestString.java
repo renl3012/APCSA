@@ -8,6 +8,9 @@ public class TestString {
 		System.out.println(test.charAt(2));
 		System.out.println(test.length());
 		System.out.println(test.toLowerCase());
+		System.out.println(test.substring(1,4)); 
+		System.out.println(test.equals("hi")); 
+		System.out.println(test.valueOf(2472));
 	}
 
 }
