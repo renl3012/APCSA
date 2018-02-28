@@ -1,5 +1,6 @@
 package unit9;
 import java.lang.Math;
+import java.util.Arrays;
 
 /**
  * This class provides a convenient way to test shuffling methods.
@@ -10,7 +11,7 @@ public class Shuffler {
 	 * The number of consecutive shuffle steps to be performed in each call
 	 * to each sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 1;
+	private static final int SHUFFLE_COUNT = 3;
 	private static int[] shuffled;
 	/**
 	 * Tests shuffling methods.
@@ -19,7 +20,7 @@ public class Shuffler {
 	public static void main(String[] args) {
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive perfect shuffles:");
-		int[] values1 = {0, 1, 2, 3};
+		int[] values1 = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			perfectShuffle(values1);
 			System.out.print("  " + j + ":");
@@ -32,7 +33,7 @@ public class Shuffler {
 
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive efficient selection shuffles:");
-		int[] values2 = {0, 1, 2, 3};
+		int[] values2 = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			selectionShuffle(values2);
 			System.out.print("  " + j + ":");
@@ -66,8 +67,7 @@ public class Shuffler {
 				shuffled[k] = values[j];
 				k = k + 2;
 			}
-		}
-		else{
+		} else {
 			int k = 0;
 			for (int j = 0; j < (values.length + 1)/2; j++){
 				shuffled[k] = values[j];
@@ -79,6 +79,9 @@ public class Shuffler {
 				shuffled[k] = values[j];
 				k = k + 2;
 			}
+		}
+		for (int i = 0; i < shuffled.length; i++) {
+			values[i] = shuffled[i];
 		}
 	}
 
@@ -95,11 +98,35 @@ public class Shuffler {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-		for (int k = values.length; k >= 0; k--){
+		int storeCard;
+		for (int k = values.length-1; k >= 0; k--){
 			int r = (int)(Math.random()*values.length);
-			int storeCard = values[k];
+			storeCard = values[k];
 			values[k] = values[r];
 			values[r] = storeCard;
 		}
+	}
+	
+	public static String flip(){
+		int r = 1+(int)(Math.random()*3);
+		if (r == 2 || r == 3){
+			return "heads";
+		} else if (r == 1){
+			return "tails";
+		}
+		return null;
+	}
+	
+	public static boolean arePermutations(int[] array1, int[] array2){
+		Arrays.sort(array1);
+		Arrays.sort(array2);
+		for (int i = 0; i < array1.length; i++){
+			if (array1[i] != array2[i]){
+				return false;
+			} else {
+				continue;
+			}
+		}
+		return true;
 	}
 }
