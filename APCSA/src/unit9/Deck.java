@@ -25,7 +25,7 @@ public class Deck {
 	 * The next card to be dealt is at size - 1.
 	 */
 	private int size;
-	ArrayList<Card> deck = new ArrayList<Card>();
+	Card[] deck = new Card[52];
 
 	/**
 	 * Creates a new <code>Deck</code> instance.<BR>
@@ -43,11 +43,10 @@ public class Deck {
 			for (int b = 0; b <= ranks.length-1; b++){
 				String tempRank = ranks[b];
 				int tempValue = values[b];
-				deck.add(new Card(tempRank, tempSuit, tempValue));
+				deck[size] = new Card(tempRank, tempSuit, tempValue);
 				size++;
 			}	
 		}
-		cards = deck.toArray(cards);
 		this.shuffle();
 	}
 
@@ -79,13 +78,13 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-		Random r = new Random();
-		for (int i = 0; i < size * 5; i++) {
-			int x = Math.abs(r.nextInt())%size;
-			int y = Math.abs(r.nextInt())%size;
-			Card temp = cards[x];
-			cards[x] = cards[y];
-			cards[y] = temp;
+		Card storeCard;
+		size = deck.length;
+		for (int k = deck.length-1; k >= 0; k--){
+			int r = (int)(Math.random()*deck.length);
+			storeCard = deck[k];
+			deck[k] = deck[r];
+			deck[r] = storeCard;
 		}
 	}
 
@@ -96,12 +95,13 @@ public class Deck {
 	 */
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		Card dealtCard = deck[0];
 		if(size > 0){
 			size--;
-			Card dealNow = deck.get(size);
-			return dealNow;
+			dealtCard = deck[size];
+			return dealtCard;
 		}
-		return null;
+	return dealtCard;
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class Deck {
 		//Unit 9 - modify to work with Arrays
 		
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + deck.get(k);
+			rtn = rtn + deck[k];
 			if (k != 0) {
 				rtn = rtn + ", ";
 			}
@@ -127,12 +127,12 @@ public class Deck {
 		}
 
 		rtn = rtn + "\nDealt cards: \n";
-		for (int k = deck.size() - 1; k >= size; k--) {
-			rtn = rtn + deck.get(k);
+		for (int k = size - 1; k >= size; k--) {
+			rtn = rtn + deck[k];
 			if (k != size) {
 				rtn = rtn + ", ";
 			}
-			if ((k - deck.size()) % 2 == 0) {
+			if ((k - size) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
 				rtn = rtn + "\n";
 			}

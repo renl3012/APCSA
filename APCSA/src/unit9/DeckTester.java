@@ -18,10 +18,16 @@ public class DeckTester {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		Deck deck1 = new Deck(ranks, suits, pointValues);
 		System.out.println(deck1);
-		deck1.shuffle();
-		System.out.println(deck1.deal());
-		System.out.println(deck1.deal());
-		System.out.println(deck1.deal());
-		System.out.println(deck1);
+		deck1.size();
+
+		Deck deck2 = new Deck(ranks, suits, pointValues);
+		System.out.println(deck2.deal());
+
+		Deck deck3 = new Deck(ranks, suits, pointValues);
+		System.out.println(deck3.isEmpty());
+		
+		Deck newDeck = new Deck(ranks, suits, pointValues);
+		newDeck.shuffle();
+		System.out.println(newDeck);
 	}
 }
