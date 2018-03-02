@@ -110,7 +110,7 @@ public class Deck {
 	 */
 	@Override
 	public String toString() {
-		String rtn = "size = " + size + "\nUndealt cards: \n";
+		String rtn = "size = " + size + "\n\nUndealt cards: \n";
 
 
 		//Unit 9 - modify to work with Arrays
@@ -126,7 +126,7 @@ public class Deck {
 			}
 		}
 
-		rtn = rtn + "\nDealt cards: \n";
+		rtn = rtn + "\nDealt cards: ";
 		for (int k = size - 1; k >= size; k--) {
 			rtn = rtn + deck[k];
 			if (k != size) {
