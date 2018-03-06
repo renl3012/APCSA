@@ -14,6 +14,8 @@ public class MadLib
 	private ArrayList<String> nouns;
 	private ArrayList<String> adjectives;
 	
+	private String modify = "";
+	
 	public MadLib()
 	{
 		
@@ -35,10 +37,24 @@ public class MadLib
 		
 		try{
 			Scanner file = new Scanner(new File(fileName));
-			
+			String story = file.nextLine();
+			for (int i = 0; i <= story.length()-1; i++)
+				if (story.substring(i, i+1).equals("#")){
+					modify += getRandomNoun();
+				}
+				else if (story.substring(i, i+1).equals("@")){
+					modify += getRandomVerb();
+				}
+				else if (story.substring(i, i+1).equals("&")){
+					modify += getRandomAdjective();
+				}else{
+					modify += story.substring(i,i+1);
+				}
+				toString();
 		}
 		catch(Exception e)
 		{
+			out.println(e);
 			out.println("Houston we have a problem!");
 		}
 		
@@ -54,7 +70,7 @@ public class MadLib
 		}
 		catch(Exception e)
 		{
-			out.println("Houston we have a problem!");
+			out.println("Houston we have a problem with nouns!");
 		}	
 		
 	}
@@ -67,11 +83,11 @@ public class MadLib
 			while(file.hasNextLine()){
 				verbs.add(file.nextLine());
 			}
-	
+			
 		}
 		catch(Exception e)
 		{
-			out.println("Houston we have a problem!");
+			out.println("Houston we have a problem with verbs!");
 		}
 	}
 
@@ -85,7 +101,7 @@ public class MadLib
 		}
 		catch(Exception e)
 		{
-			out.println("Houston we have a problem!");
+			out.println("Houston we have a problem with adjectives!");
 		}
 	}
 
@@ -117,8 +133,6 @@ public class MadLib
 
 	public String toString()
 	{
-		
-		String output = "";
-		return output + "\n\n\n";
+		return modify;
 	}
 }

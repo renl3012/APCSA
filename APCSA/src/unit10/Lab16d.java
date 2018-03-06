@@ -8,9 +8,9 @@ public class Lab16d
 	{
 		System.out.println(System.getProperty("user.dir"));
 		//make a new MadLib
-		String madLibFile = "\\src\\unit10\\madlib.dat";
+		String madLibFile = System.getProperty("user.dir")+ "\\src\\unit10\\story.dat";
 		MadLib mad = new MadLib(madLibFile);
 		
-		out.println("\n");
+		out.println(mad + "\n");
 	}
 }
