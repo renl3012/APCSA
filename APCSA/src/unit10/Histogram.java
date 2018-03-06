@@ -16,7 +16,7 @@ public class Histogram
 	public Histogram()
 	{
 
-
+		fileName = "";
 
 
 	}

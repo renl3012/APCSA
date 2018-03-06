@@ -18,8 +18,7 @@ public class MadLib
 	
 	public MadLib()
 	{
-		
-
+		modify = "";
 
 	}
 
