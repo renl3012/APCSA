@@ -28,21 +28,17 @@ public class Grades
 		gradeList = gradeList.substring(4, gradeList.length());
 		Scanner s2 = new Scanner(gradeList);
 
-// this part needs some fixing
 		int spot = 0;
 		for (int i = 0; i < size; i++){
 			if (s2.hasNextInt()){
 				grades[spot] = s2.nextInt();
 				spot++;
-				System.out.println(grades[i]);
 			}
 			if (s2.hasNextDouble()){
 				grades[spot] = s2.nextDouble();
 				spot++;
-				System.out.println(grades[i]);
 			}
 		}
-
 		s.close();
 		s2.close();
 	}
