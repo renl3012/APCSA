@@ -56,11 +56,12 @@ public class GradeBookFileRunner
 			out.println();
 		}
 		out.println();
-		out.println("Failure List = " + test.getFailureList(70));	
+		out.println("Failure List = " + test.getFailureList(70));
 		out.println("Highest Average = " + test.getStudentWithHighestAverage());
 		out.println("Lowest Average = " + test.getStudentWithLowestAverage());
 		out.println("Class Average = " + test.getClassAverage());
 	
+		
 		file.close();
 	}
 }
