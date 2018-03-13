@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static java.lang.System.*;
 import static java.util.Arrays.*;
 
-public class Student
+public class Student implements Comparable
 {
 	private String myName;
 	private String gradeString;
@@ -24,6 +24,12 @@ public class Student
 		gradeString = gradeList;
 	}
 	
+	public boolean equals(Student s){
+		if (this.getAverage() == s.getAverage() && this.getName() == s.getName()){
+			return true;
+		}
+		return false;
+	}
 	public void setName(String name)
 	{
 		myName = name;
@@ -81,5 +87,10 @@ public class Student
 	public String toString()
 	{
 		return "";
-	}	
+	}
+
+	public int compareTo(Object o){
+		Student s = (Student)o;
+		return (int) (this.getAverage() - s.getAverage());
+	}
 }

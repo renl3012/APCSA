@@ -21,21 +21,21 @@ public class Grades
 	
 	public void setGrades(String gradeList)
 	{
-		Scanner s = new Scanner(gradeList);
-		int size = s.nextInt();
+		Scanner s2 = new Scanner(gradeList);
+		int size = s2.nextInt();
 		grades = new double[size];
 
 		gradeList = gradeList.substring(4, gradeList.length());
-		Scanner s2 = new Scanner(gradeList);
+		Scanner s = new Scanner(gradeList);
 
 		int spot = 0;
 		for (int i = 0; i < size; i++){
-			if (s2.hasNextInt()){
-				grades[spot] = s2.nextInt();
+			if (s.hasNextInt()){
+				grades[spot] = s.nextInt();
 				spot++;
 			}
-			if (s2.hasNextDouble()){
-				grades[spot] = s2.nextDouble();
+			if (s.hasNextDouble()){
+				grades[spot] = s.nextDouble();
 				spot++;
 			}
 		}
