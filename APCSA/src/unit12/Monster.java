@@ -50,15 +50,15 @@ public class Monster implements Comparable
 	}
 	
 	//accessors - write get methods for height, weight, and age
-	public int getHeight(int ht){
+	public int getHeight(){
 		return myHeight;
 	}
 	
-	public int getWeight(int wt){
+	public int getWeight(){
 		return myWeight;
 	}
 	
-	public int getAge(int age){
+	public int getAge(){
 		return myAge;
 	}
 	
@@ -79,15 +79,21 @@ public class Monster implements Comparable
 	public int compareTo( Object obj )
 	{
 		Monster rhs = (Monster)obj;
-		if (rhs)
-
-
-
-
-		return -1;
+		int sumRhs = rhs.getHeight()+ rhs.getWeight()+ rhs.getAge();
+		int sumThis = this.getHeight() + this.getWeight() + this.getAge();
+		if (sumRhs > sumThis){
+			return -1;
+		}
+		else if (sumRhs < sumThis){
+			return 1;
+		}
+		return 0;
 	}
 
 	//write a toString() method
-	
+	public String toString(){
+		String output = myHeight + " " + myWeight + " " + myAge;
+		return output;
+	}
 	
 }
