@@ -49,13 +49,17 @@ public class Time {
 			hour = hour % 24;
 		}
 	}
+	public String toString(){
+		String output = "";
+		output += "Current time is ";
+		output += hour + ":" + minute + ":" + second + " GMT";
+		return output;
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Time t = new Time(555550000);
-		System.out.println(t.getHour());
-		System.out.println(t.getMinute());
-		System.out.println(t.getSecond());
+		Time t = new Time();
+		System.out.println(t);
 	}
 
 }
