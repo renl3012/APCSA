@@ -24,9 +24,10 @@ public class FancyWords
 		wordRay = new String[count];
 		wordRay = sentence.split(" ");
 		
-		s.close();
-		
+		//System.out.println(Arrays.toString(wordRay));
 		setWords(sentence);
+		
+		s.close();
 	}
 
 	public void setWords(String sentence)
@@ -41,8 +42,12 @@ public class FancyWords
 		fancy = new String[longest.length()];
 		for (int h = 0; h < longest.length(); h++){
 			for (int i = wordRay.length-1; i >= 0; i--){//each word from right to left
-				fragment += wordRay[i].substring(wordRay[i].length()-1, wordRay[i].length()); //picks letter
-				wordRay[i] = wordRay[i].substring(0, wordRay[i].length()-1);
+				if (wordRay[i].length() > 0){
+					fragment += wordRay[i].substring(wordRay[i].length()-1); //picks letter
+					wordRay[i] = wordRay[i].substring(0, wordRay[i].length()-1);
+				}else{
+					fragment += " ";
+				}
 			}
 			fancy[h] = fragment;
 			fragment = "";
