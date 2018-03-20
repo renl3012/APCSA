@@ -6,39 +6,41 @@ import java.util.Arrays;		//use Arrays.toString() to help print out the array
 public class QuickSort
 {
 	private static int passCount;
-	private Comparable[] list;
+	private Comparable[] ray;
 
 
-	public static void quickSort(Comparable[] list){
+	public static void quickSort(Comparable[] ray){
 		passCount = 0;
-		quickSort(list, 0, list.length-1);
+		quickSort(ray, 0, ray.length-1);
 	}
-	private static void quickSort(Comparable[] list, int low, int high)
+	private static void quickSort(Comparable[] ray, int low, int high)
 	{
 		if(low < high){
-			int split = partition(list, low, high);
-			System.out.println("Pass " + passCount++ + " " + Arrays.toString(list));
-			quickSort(list, low, split);
-			quickSort(list, split+1, high);
+			int split = partition(ray, low, high);
+			System.out.println("Pass " + passCount + ": " + Arrays.toString(ray));
+			passCount++;
+			quickSort(ray, low, split);
+			quickSort(ray, split+1, high);
 		}
 
 	}
 
-	private static int partition(Comparable[] list, int low, int high)
+	private static int partition(Comparable[] ray, int low, int high)
 	{
-		Comparable pivot = list[low];
+		Comparable pivot = ray[low];
 		int bot = low - 1;
 		int top = high + 1;
 
 		while (bot < top){
-			while ((list[++bot].compareTo(pivot) >= 0) && (list[--bot].compareTo(pivot) < 0)){
+			while (ray[--top].compareTo(pivot) > 0);
+			while (ray[++bot].compareTo(pivot) < 0);
 				if (bot >= top){
 					return top;
 				}
-				Comparable temp = list[bot];
-				list[bot] = list[top];
-				list[top] = temp;
-			}
+				Comparable temp = ray[bot];
+				ray[bot] = ray[top];
+				ray[top] = temp;
+
 		}
 		return 0;
 	}
