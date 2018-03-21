@@ -9,17 +9,32 @@ public class Lab21g
 		//instantiate an AtCounter
 		AtCounter a = new AtCounter();
 		a.countAts(0, 0);
+		System.out.println(a.getAtCount());
+		a.printMatrix();
+		a.reset();
 		
-		AtCounter a2 = new AtCounter();
-		a2.countAts(2, 5);
+		//AtCounter a2 = new AtCounter();
+		a.countAts(2, 5);
+		System.out.println(a.getAtCount());
+		a.printMatrix();
+		a.reset();
 		
-		AtCounter a3 = new AtCounter();
-		a3.countAts(5, 0);
+		//AtCounter a3 = new AtCounter();
+		a.countAts(5, 0);
+		System.out.println(a.getAtCount());
+		a.printMatrix();
+		a.reset();
 		
-		AtCounter a4 = new AtCounter();
-		a4.countAts(9, 9);
+		//AtCounter a4 = new AtCounter();
+		a.countAts(9, 9);
+		System.out.println(a.getAtCount());
+		a.printMatrix();
+		a.reset();
 		
-		AtCounter a5 = new AtCounter();
-		a5.countAts(3, 9);
+		//AtCounter a5 = new AtCounter();
+		a.countAts(3, 9);
+		System.out.println(a.getAtCount());
+		a.printMatrix();
+		a.reset();
 	}
 }
