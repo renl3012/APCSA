@@ -11,7 +11,7 @@ public class AtCounter
 
 	public AtCounter()
 	{
-		atCount=0;
+		atCount=1;
 		atMat = new char[][]{{'@','-','@','-','-','@','-','@','@','@'},
 									{'@','@','@','-','@','@','-','@','-','@'},
 									{'-','-','-','-','-','-','-','@','@','@'},
@@ -37,7 +37,7 @@ public class AtCounter
 					if (atMat[r+1][c] == '@'){
 						atCount += 1;
 						track += 1;
-						System.out.println(atCount);
+						//System.out.println(atCount);
 						countAts(r+1, c);
 					}
 				}
@@ -46,7 +46,7 @@ public class AtCounter
 					if (atMat[r-1][c] == '@'){
 						atCount += 1;
 						track += 1;
-						System.out.println(atCount);
+						//System.out.println(atCount);
 						countAts(r-1,c);
 					}
 				}
@@ -55,7 +55,7 @@ public class AtCounter
 					if (atMat[r][c+1] == '@'){
 						atCount += 1;
 						track += 1;
-						System.out.println(atCount);
+						//System.out.println(atCount);
 						countAts(r,c+1);
 					}
 				}
@@ -64,7 +64,7 @@ public class AtCounter
 					if (atMat[r][c-1] == '@'){
 						atCount += 1;
 						track += 1;
-						System.out.println(atCount);
+						//System.out.println(atCount);
 						countAts(r,c-1);
 					}
 				}
@@ -77,13 +77,39 @@ public class AtCounter
 					    }
 					    System.out.println();
 					}
+					for (int i = 0; i < atMat.length; i++) {
+					    for (int j = 0; j < atMat[i].length; j++) {
+					        if (atMat[i][j] == '0'){
+					        	atMat[i][j] = '@';
+					        }
+					    }
+					    System.out.println();
+					}
 					return atCount;
 				}
 			}
 		}
+		System.out.println("No connections.");
+		for (int i = 0; i < atMat.length; i++) {
+		    for (int j = 0; j < atMat[i].length; j++) {
+		        if (atMat[i][j] == '0'){
+		        	atMat[i][j] = '@';
+		        }
+		    }
+		    System.out.println();
+		}
 		return 0;
 	}
 
+	public void printMatrix(){
+		for (int i = 0; i < atMat.length; i++) {
+		    for (int j = 0; j < atMat[i].length; j++) {
+		        System.out.print(atMat[i][j] + " ");
+		    }
+		    System.out.println();
+		}
+	}
+	
 	public int getAtCount()
 	{
 		return atCount;
