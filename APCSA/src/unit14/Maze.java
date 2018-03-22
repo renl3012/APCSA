@@ -78,11 +78,10 @@ public class Maze
 	public String toString()
 	{
 		String output="";
-		for (int i = 0; i < maze.length; i++){
-			if (hasExitPath(i,0) == true){
-				output = "exit found\n";
-				return output;
-			}
+
+		if (hasExitPath(0,0) == true){
+			output = "exit found\n";
+			return output;
 		}
 
 		output = "exit not found\n";
