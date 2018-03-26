@@ -20,7 +20,6 @@ public class Lab24b
 			f = new FancyWord2(word);
 			System.out.println(f);
 
-
 	   }
 	}
 }
